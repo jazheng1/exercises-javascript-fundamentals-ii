@@ -25,3 +25,12 @@ if (require.main === module) {
 }
 
 module.exports = addCommas;
+
+function chunk(num){
+    let word = num.toString();
+    let arr = [];
+    for(i = 0; i< word.length; i+=3){
+         arr.push(word.slice(i, i+3));
+    }
+    return arr;
+}
