@@ -46,15 +46,34 @@ function formatSeconds(num) {
       remainingSeconds -= 60;
   }
   second = remainingSeconds%60;
-  let time_Letter_Array = ['w' + 'h' + 'm' + 's']
-  let timeArray = [week, hour, min, second]
+  let time_Letter_Array = ['w', 'd', 'h', 'm', 's']
+  let timeArray = [week, day, hour, min, second]
   let combinedArray = []
+  let counter = 0;
+  let timeString = '';
   console.log(timeArray)
   for(let i = 0; i < timeArray.length; i++){
-       combinedArray = timeArray[i] + time_Letter_Array[i];
+    if(timeArray[i] && timeArray[i+1] === 0){
+      counter +=2;
+    }
+    if(timeArray[i] && timeArray[i+1] && timeArray[i+2] === 0){
+      counter +=3;
+    }
+    if(timeArray[i] && timeArray[i+1] && timeArray[i+2] && timeArray[i+3] === 0)
+    {
+      counter +=4;
+    }
   }
-  console.log(combinedArray);
-  return combinedArray;
+    timeArray.splice(0, counter);
+    time_Letter_Array.splice(0,counter);
+  for(let i = 0; i < timeArray.length; i++){
+    combinedArray[i] = timeArray[i] + time_Letter_Array[i];
+  } 
+  for(let i = 0; i < combinedArray.length; i++){
+    timeString = timeString + combinedArray[i] + ' '
+  }
+  console.log(timeString);
+  return timeString;
 }
 
 if (require.main === module) {
