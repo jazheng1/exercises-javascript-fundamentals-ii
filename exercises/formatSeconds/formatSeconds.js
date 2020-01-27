@@ -53,14 +53,21 @@ function formatSeconds(num) {
   let timeString = '';
   console.log(timeArray)
   for(let i = 0; i < timeArray.length; i++){
+    console.log('im in here')
+    if(timeArray[i] === 0){
+      counter++;
+    }
     if(timeArray[i] && timeArray[i+1] === 0){
+      console.log('true')
       counter +=2;
     }
     if(timeArray[i] && timeArray[i+1] && timeArray[i+2] === 0){
+      console.log('true')
       counter +=3;
     }
     if(timeArray[i] && timeArray[i+1] && timeArray[i+2] && timeArray[i+3] === 0)
     {
+      console.log('true')
       counter +=4;
     }
   }
