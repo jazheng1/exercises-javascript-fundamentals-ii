@@ -22,9 +22,27 @@
 
 function runLengthEncode(num) {
   // This is your job. :)
+  let numCounterArray = [];
+  let newNum = '';
+  let counter = 0;
+  for (let i = 0; i < num.length; i++) {
+    if(num[i] === num[i+1]){
+      counter++;
+    }
+    if(num[i] !== num[i+1]){
+    numCounterArray.push(counter+1 + num[i]);
+    counter  = 0;
+    }
+  }
+
+  for (let j = 0; j < numCounterArray.length; j++) {
+    newNum += numCounterArray[j];
+  }
 
   // Remember, if the code is stumping you, take a step back and
   // make sure you can do it by hand.
+  console.log(newNum);
+  return newNum;
 }
 
 if (require.main === module) {
